@@ -1,53 +1,26 @@
 {
-  "name": "autolabcli",
-  "version": "0.0.1",
-  "description": "Command line interface for JavaAutolab",
+  "name": "pairwise-evaluator",
+  "version": "1.0.0",
+  "description": "Script for Pairwise Evaluation in CS F213 Lab sessions",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint test/*.js lib/*.js *.js",
-    "test:watch": "npm run test -- -w",
-    "pretest": "node index.js && export PATH=$PATH:./node_modules/.bin",
-    "test": "nyc --reporter=lcov --reporter=text-lcov -s --all mocha test > /dev/null",
-    "posttest": "nyc report && nyc report --reporter=text-lcov | coveralls",
-    "jsdocs": "jsdoc -c conf.json"
+    "test": "./node_modules/mocha/bin/mocha test",
+    "coverage": "./node_modules/.bin/nyc ./node_modules/mocha/bin/mocha",
+    "lint": "./node_modules/.bin/eslint ."
   },
-  "keywords": [
-    "AutoLab",
-    "CLI"
-  ],
-  "author": "Sebastin Santy",
-  "license": "GPL-3.0",
+  "author": "Chaitanya Mukka",
+  "license": "ISC",
   "dependencies": {
-    "chalk": "^1.1.3",
-    "clear": "0.0.1",
-    "cli-spinner": "^0.2.5",
-    "cli-table": "^0.3.1",
-    "figlet": "^1.2.0",
-    "gitlab": "^1.7.1",
-    "inquirer": "^1.2.3",
-    "lodash": "^4.17.2",
-    "minimist": "^1.2.0",
-    "preferences": "^0.2.1",
-    "request": "^2.79.0",
-    "simple-git": "^1.64.0",
-    "socket.io-client": "^2.0.2",
-    "touch": "^1.0.0"
-  },
-  "bin": {
-    "autolab": "./index.js"
+    "bluebird": "^3.5.0",
+    "caporal": "^0.7.0",
+    "csv": "^1.1.1",
+    "lodash": "^4.17.4",
+    "mysql": "^2.14.1"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "coveralls": "^2.13.1",
-    "eslint": "^3.12.2",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "mock-stdin": "^0.3.1",
-    "nyc": "^10.3.2",
-    "jsdoc": "^3.4.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/prasadtalasila/autolabcli"
+    "chai": "^4.1.1",
+    "eslint": "^4.5.0",
+    "mocha": "^3.5.0",
+    "nyc": "^11.1.0"
   }
 }
